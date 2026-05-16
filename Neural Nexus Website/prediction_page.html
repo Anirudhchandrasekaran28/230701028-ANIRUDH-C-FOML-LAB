@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroHealth - Brain Tumor Classification</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.16.0/dist/tf.min.js"></script>
+    <link rel="stylesheet" href="prediction_page.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card scanner-card">
+            <h1 class="title">NeuroHealth Brain Scan</h1>
+            <p class="subtitle">Upload an MRI scan to detect and classify brain tumors</p>
+            
+            <div class="upload-section">
+                <input 
+                    type="file" 
+                    id="image-upload" 
+                    accept="image/*" 
+                    class="file-input"
+                />
+                <label for="image-upload" class="file-label">
+                    <i class="fas fa-upload"></i> Upload MRI Scan
+                </label>
+                
+                <div class="preview-container">
+                    <div id="loading-spinner" class="loading-spinner" style="display:none;"></div>
+                    <img id="preview-img" class="preview-image" style="display:none;" />
+                    <p id="placeholder-text" class="placeholder-text">Your brain scan will appear here</p>
+                </div>
+                
+                <div id="error-message" class="error-message" style="display:none;"></div>
+                
+                <div class="model-info">
+                    <p>Powered by TensorFlow.js | CNN Model</p>
+                    <p>Classification: Glioma, Meningioma, Pituitary, or No Tumor</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card results-card">
+            <div class="result-header">
+                <h2 class="title">Analysis Results</h2>
+            </div>
+            
+            <div class="result-section">
+                <div id="initial-message" class="placeholder-text">
+                    Upload an image to see prediction results
+                </div>
+                
+                <div id="prediction-container" class="prediction-result" style="display:none;">
+                    <i id="result-icon" class="fas fa-circle-check result-icon"></i>
+                    <h3 id="prediction-text"></h3>
+                    
+                    <div class="result-details">
+                        <p>Primary diagnosis confidence:</p>
+                        <div class="progress-bar">
+                            <div id="confidence-bar" class="progress-fill" style="width: 0%;"></div>
+                        </div>
+                        <p id="prediction-confidence" class="prediction-confidence"></p>
+                    </div>
+                    
+                    <p id="prediction-recommendation" class="prediction-confidence" style="margin-top: 20px;"></p>
+                    
+                    <div id="probability-container" class="probability-container">
+                        <h4 class="probability-title">Detailed Analysis</h4>
+                        <!-- Probability bars will be added here dynamically -->
+                    </div>
+                    
+                    <div class="tumor-type-info">
+                        <p><strong>About Brain Tumor Types:</strong></p>
+                        <p><span style="color: var(--glioma-color);">Glioma:</span> Originates in glial cells that surround nerve cells. Usually aggressive and fast-growing.</p>
+                        <p><span style="color: var(--meningioma-color);">Meningioma:</span> Forms in the meninges (membrane surrounding the brain). Often slow-growing and benign.</p>
+                        <p><span style="color: var(--pituitary-color);">Pituitary:</span> Develops in the pituitary gland. Can affect hormone production.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="prediction.js"></script>
+</body>
+</html>

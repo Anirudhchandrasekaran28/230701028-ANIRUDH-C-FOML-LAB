@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMU - Create an Account</title>
+    <link rel="stylesheet" href="Sign_up.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Left Side - Background Image -->
+        <div class="left-side">
+            <img src="Web_Images/log_bg (2).jpg">
+        </div>
+
+        <!-- Right Side - Login Form -->
+        <div class="right-side">
+            <div class="back-link">
+                <a href="#">Back to website →</a>
+            </div>
+
+            <h1 class="form-title">Create an account</h1>
+            <p class="login-link">Already have an account? <a href="Login_page.html">Log in</a></p>
+
+            <form class="signup-form" id="signupForm">
+                <div class="name-inputs">
+                    <div class="input-group">
+                        <input type="text" placeholder="First name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" placeholder="Last name" required>
+                    </div>
+                </div>
+
+                <input type="email" placeholder="Email" required>
+
+                <div class="password-container">
+                    <input type="password" placeholder="Enter your password" required id="passwordInput">
+                    <span class="toggle-password" id="togglePassword">
+                        <i class="fas fa-eye"></i>
+                    </span>
+                </div>
+
+                <div class="terms-checkbox">
+                    <input type="checkbox" id="termsCheckbox">
+                    <label for="termsCheckbox">I agree to the Terms & Conditions</label>
+                </div>
+
+                <button type="submit" class="create-account-btn">Create account</button>
+            </form>
+        </div>
+    </div>
+    <script src="Sign_up.js"></script>
+</body>
+</html>
